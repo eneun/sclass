@@ -18,6 +18,7 @@ from django.urls import path, include
 import accounts.views
 import classregister.views
 import storeregister.views
+import cardnews.views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -29,4 +30,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('classregister/', include('classregister.urls')),
     path('storeregister/', include('storeregister.urls')),
+    path('cardnews/', include('cardnews.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

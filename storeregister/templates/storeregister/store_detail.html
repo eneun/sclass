@@ -1,29 +1,94 @@
-<p>가게상세페이지</p>
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<p>
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets2/images/logo4.png" type="image/x-icon">
+  <meta name="description" content="">
+
+  <title></title>
+  <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets2/theme/css/style.css">
+  <link rel="preload" as="style" href="assets2/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets2/mobirise/css/mbr-additional.css" type="text/css">
+
+
+
+</head>
+<body>
+  {% extends 'base.html' %}
 {% block content %}
 
-    <!DOCTYPE html>
-    <html>
-        <head>
-            <meta charset="utf-8">
-        </head>
-        <body>
+  <section class="features16 cid-rIx8UK4a4u" id="features16-1a" data-sortbtn="btn-primary">
+    <div class="container">
+        <div class="row main align-items-center">
+            <div class="col-md-6 image-element ">
+              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                  
+                {% if store.photo %}
+                <img src ="{{ store.photo.url }}" width=200> <br>
+                	<div class="carousel-item active">
+                  <img src ="{{ store.photo.url }}" class="d-block w-100" >
+                </div>
+                {% endif %}
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">이전</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">다음</span>
+              </a>
+            </div>
+            </div>
 
-            {{ store.user }} <br>
-            {{ store.store_title }} <br>
-            {{ store.date }} <br>
-            {{ store.region }} <br>
-            {{ store.address }} <br>
-            {{ store.detailaddr }} <br>
-            {{ store.homepage }} <br>
-            {{ store.describe }} <br>
-            <img src ="{{ store.photo.url }}" width=200> <br>
+
+            <div class="col-md-6 text-element">
+                <div class="text-content">
+                    <h4 class="mbr-section-subtitle mbr-fonts-style mbr-black align-left display-5"><strong><br></strong><br><br><strong></strong></h4>
+                    <h2 class="mbr-title pt-2 mbr-fonts-style align-left display-2">
+                        {{ store.store_title }}<br></h2>
+                    <div class="mbr-section-text">
+                        <p class="mbr-text pt-3 mbr-light mbr-fonts-style align-left display-7">
+                            상점주인
+                        </p>: {{ store.user }}<br>지역: {{ store.region }}<br>홈페이지: {{ store.homepage }}<br></p>
+                    </div>
+                    <div class="mbr-section-btn pt-3 align-left">
+
+                      {% if user == store.user %}
+                          <a href="{% url 'storeregister:storeupdate' store.id %}">수정</a>
+                          <a href="{% url 'storeregister:delete' store.id %}" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a>
+
+                      {% else %}
 
 
-            <!--다음지도api - 배포시 다음에서 플랫폼 도메인 주소 바꾸기!-->
-            <!--https://developers.kakao.com/apps/367921/settings/general-->
-                    
-            <div id="map" style="width:350px;height:350px;"></div>
+                      {% endif %}
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section article content10 cid-rIx9PveWFN" id="content10-1f" data-sortbtn="btn-primary">
+
+
+
+    <div class="container">
+        <div class="media-container-row">
+            <div class="col-md-10 col-lg-8">
+                <p class="mbr-text m-0 mbr-fonts-style mbr-black display-7">{{ store.describe }}</p>
+            </div>
+            <section class="map1 cid-rIxafuMED3" id="map1-1g" data-sortbtn="btn-primary">
+              
+                
+                <div id="map" style="width:350px;height:350px;"></div>
 
             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=88fef5eac83ce4f2e8d43c348fcb0e0b&libraries=services"></script>
             <script>
@@ -64,18 +129,50 @@
                 } 
             });    
             </script>
+                
+                
+                
+                
+          </section>
 
-            {% if request.user == store.user %}
-                <br>
-                <a href="{% url 'storeregister:storeupate' store.id %}">수정하기</a><br>
-                <a href="{% url 'storeregister:delete' store.id %}">삭제하기</a>
-                <br><br>
-            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section content11 cid-rIxaWhtKWw" id="content11-1i" data-sortbtn="btn-primary">
 
 
-            <a href="{% url 'storeregister:list' %}">글 목록</a>
 
-        </body>
-    </html>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="mbr-section-btn align-center">
+                  <br>
+                  {% for review in reviews %}
+                  {{ review.user.username }}
+                  {{ review.content }}
+                  <br>
+                  {% if request.user == store.user %}
+                  <a href="{% url 'storeregister:storeupate' store.id %}">수정하기</a><br>
+
+                  <a href="{% url 'storeregister:delete' store.id %}" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a>
+                  {% endif %}
+                  {% endfor %}
+                  <br>
+                  <a class="btn btn-primary display-4" href="{% url 'storeregister:list' %}">상점목록</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <script src="assets2/web/assets2/jquery/jquery.min.js"></script>
+  <script src="assets2/popper/popper.min.js"></script>
+  <script src="assets2/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets2/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets2/theme/js/script.js"></script>
 
 {% endblock %}
+</body>
+</p>

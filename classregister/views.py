@@ -6,6 +6,7 @@ from django.contrib import messages
 import datetime
 # 모델
 from .models import Class, Book, Review, Scrap
+from storeregister.models import Store
 from django.conf import settings
 # 폼
 from .forms import ClassForm, ReviewForm
@@ -24,7 +25,9 @@ def detail(request, class_id):
     books = Book.objects.filter(book_class=class_id)
     books = [ i.user for i in books ]
     reviews = Review.objects.filter(review_class=class_id)
-    data = { 'object' : class_object, 'reviews' : reviews, 'books':books }
+    booked = Book.objects.filter(book_class=class_id, user=request.user)
+    scraped = Scrap.objects.filter(user=request.user, my_class=class_object)
+    data = { 'object' : class_object, 'reviews' : reviews, 'books':books, 'scraped':scraped, 'booked': booked}
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -72,15 +75,28 @@ def delete(request, class_id):
     return redirect('list')
 
 def search(request):
-    qs = Class.objects.all()
-    q = request.GET.get('q','')
-    if q:
-        qs = qs.filter(class_title__icontains=q)
+    # qs = Class.objects.all()
+    # q = request.GET.get('q','')
+    
+    # if q:
+    #     qs = qs.filter(class_title__icontains=q)
 
-    data = { 
-        'classes' : qs,
-        'q' : q
-         }
+    # data = { 
+    #     'classes' : qs,
+    #     'q' : q
+    #      }
+    # return render(request, 'classregister/class_list.html', data)
+
+    category = request.GET['category']
+    if category:
+        if category=='none':
+            classes = Class.objects.filter(date__gte=datetime.datetime.now()).order_by('-id')
+        else:
+            classes = Class.objects.filter(category=category) & Class.objects.filter(date__gte=datetime.datetime.now()).order_by('-id')
+    data = {
+        'classes': classes
+    }
+    
     return render(request, 'classregister/class_list.html', data)
 
 def participate(request, class_id):

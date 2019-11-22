@@ -1,12 +1,99 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>내가 개설한 클래스</h2>
+{% load staticfiles %}
 
-{% for class in classes.all %}
+<!DOCTYPE html>
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="{% static 'assets/images/logo4.png' %}" type="image/x-icon">
+  <meta name="description" content="">
+  
+  <title>my_class</title>
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/datatables/data-tables.bootstrap4.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}"><link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+  
+  
+  
+</head>
+<body>
+  <section class="features14 popup-btn-cards cid-rItkU7ySky mbr-parallax-background" id="features14-2k">
 
-<p>{{ class.class_title }}</p>
-<a href="{% url 'my_student' class.id %}">수강생 확인하기</a>
+    
 
-{% endfor %}
+    
+    <a class="full-link" href=""></a>
+    <div class="container-fluid card-wrapper">
+        <div class="row justify-content-center align-items-center" style="min-height: 12vw;">
+             <div class="col-xl-10 col-lg-10 col-md-12 text-block">
+                <h2 class="mbr-section-title mbr-fonts-style mbr-light mbr-white mbr-bold display-2">MY CLASS <br>MANAGEMENT</h2>                 
+             </div>
+        </div>
+    </div>
+</section>
 
-{% endblock %}
+<section class="table1 section-table cid-rItooIL3dn" id="table1-2p">
+
+    
+
+    
+    <div class="container">
+        <div class="media-container-row align-center">
+            <div class="col-12 col-md-12">
+                <h2 class="mbr-section-title mbr-fonts-style mbr-black display-2">나의 클래스 관리</h2>
+                
+                <div class="table-wrapper pt-4">
+                    <div class="container">
+                        
+                    </div>
+                    <div class="container-fluid scroll">
+                        {% for class in classes.all %}
+                        <table class="table" cellspacing="0">
+                            
+                            <tbody>
+                            
+                            <tr> 
+                                           
+                                        <td class="body-item mbr-fonts-style display-7">{{ class.class_title }}</td><td class="body-item mbr-fonts-style display-7"><a href="{% url 'my_student' class.id %}">수강생 확인하기</a></td>
+                                   
+
+                            </tr>
+                            
+                            </tbody>
+                            
+                        </table>
+                        {% endfor %}
+                    </div>
+                    <div class="container-fluid table-info-container">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets/mbr-popup-btns/mbr-popup-btns.js' %}"></script>
+  <script src="{% static 'assets/parallax/jarallax.min.js' %}"></script>
+  <script src="{% static 'assets/datatables/jquery.data-tables.min.js' %}"></script>
+  <script src="{% static 'assets/datatables/data-tables.bootstrap4.min.js' %}"></script>
+  <script src="{% static 'assets/theme/js/script.js' %}"></script>
+  
+  
+</body>
+</html>
+
+{% endblock %} 

@@ -29,8 +29,8 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'classregister.apps.ClassregisterConfig',
     'storeregister.apps.StoreregisterConfig',
+    'cardnews.apps.CardnewsConfig',
     'bootstrap4',
-
 ]
 
 MIDDLEWARE = [
@@ -113,9 +113,7 @@ AUTH_USER_MODEL = "accounts.User"
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'storeregister', 'static'),
-    os.path.join(BASE_DIR, 'classregister', 'static')
-
+    os.path.join(BASE_DIR, 'sclass', 'static')
 ]
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

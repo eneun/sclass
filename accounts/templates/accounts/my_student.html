@@ -1,16 +1,130 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>{{class.class_title}} 신청자 명단</h2>
+{% load staticfiles %}
+<!DOCTYPE html>
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="{% static 'assets/images/logo4.png' %}" type="image/x-icon">
+  <meta name="description" content="">
+  
+  <title>my_student</title>
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/datatables/data-tables.bootstrap4.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}"><link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+  
+  
+  
+</head>
+<body>
+    
+  <section class="features14 popup-btn-cards cid-rIsIVXsvRB mbr-parallax-background" id="features14-1n">
 
-<p>현재 수강 신청 인원 : {{current_number}}</p>  <!--출력값이상-->
-<p>정원 : {{class.max_number}}</p>
+    
+
+    
+    <a class="full-link" href=""></a>
+    <div class="container-fluid card-wrapper">
+        <div class="row justify-content-center align-items-center" style="min-height: 12vw;">
+             <div class="col-xl-10 col-lg-10 col-md-12 text-block">
+                <h2 class="mbr-section-title mbr-fonts-style mbr-light mbr-white mbr-bold display-2">MY STUDENT</h2>                 
+             </div>
+        </div>
+    </div>
+</section>
+
+<section class="table1 section-table cid-rItoZWPhV1" id="table1-2q">
+
+    
+
+    
+    <div class="container">
+        <div class="media-container-row align-center">
+            <div class="col-12 col-md-12">
+                <h2 class="mbr-section-title mbr-fonts-style mbr-black display-2">{{class.class_title}} 정보</h2>
+                <h3 class="mbr-section-subtitle mbr-fonts-style pb-4 display-5">{{class.class_title}} Infomation</h3>
+                <div class="table-wrapper">
+                    <div class="container">
+                        
+                    </div>
+                    <div class="container-fluid scroll">
+                        <table class="table" cellspacing="0">
+
+                            <tbody>
+                                
+                                
+                            <tr> 
+                                    
+
+                                <td class="body-item mbr-fonts-style display-7">현재 수강신청 인원</td><td class="body-item mbr-fonts-style display-7">{{current_number}}</td></tr><tr> 
+                                    
+
+                                <td class="body-item mbr-fonts-style display-7">정원</td><td class="body-item mbr-fonts-style display-7">{{class.max_number}}</td></tr></tbody>
+                        </table>
+                    </div>
+                    <div class="container-fluid table-info-container">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="table1 section-table cid-rIw0gmQIEs" id="table1-3a">
+
+    
+
+    
+    <div class="container">
+        <div class="media-container-row align-center">
+            <div class="col-12 col-md-12">
+                <h2 class="mbr-section-title mbr-fonts-style mbr-black display-2">수강생 정보</h2>
+                <h3 class="mbr-section-subtitle mbr-fonts-style pb-4 display-5">My Student Information</h3>
+                <div class="table-wrapper">
+                    <div class="container">
+                        
+                    </div>
+                    <div class="container-fluid scroll">
+                        <table class="table" cellspacing="0">
+                           
+                            <tbody>
+
+                                
+                            {% for book in books %}
+                            <tr> 
+                                <td class="body-item mbr-fonts-style display-7">{{book.user.username}}</td><td class="body-item mbr-fonts-style display-7">{{book.created_at}}</td></tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="container-fluid table-info-container">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-{% for book in books %}
-    <br>
-    <p>아이디 : {{book.user.username}}</p>
-    <p>신청 시간 : {{book.created_at}}</p>
-    <br>
-{% endfor %}
-
-{% endblock %}
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets/mbr-popup-btns/mbr-popup-btns.js' %}"></script>
+  <script src="{% static 'assets/parallax/jarallax.min.js' %}"></script>
+  <script src="{% static 'assets/datatables/jquery.data-tables.min.js' %}"></script>
+  <script src="{% static 'assets/datatables/data-tables.bootstrap4.min.js' %}"></script>
+  <script src="{% static 'assets/theme/js/script.js' %}"></script>
+  
+</body>
+</html>
+{% endblock %}  

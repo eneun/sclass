@@ -1,43 +1,118 @@
-<p>클래스리스트</p>
 {% extends 'base.html' %}
 {% block content %}
+{% load staticfiles %}
 
-클래스 찾기
-<br>
-<form action="{% url 'classregister:search' %}" method="get">
-  <input type="text" name="q" value="{{ q }}">
-  <input type="submit" value="검색">
-</form>
+<!DOCTYPE html>
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="{% static 'assets2/images/logo4.png' %}" type="image/x-icon">
+  <meta name="description" content="">
+  
+  <title>class_list</title>
+  <link rel="stylesheet" href="{% static 'assets2/web/assets/mobirise-icons/mobirise-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'assets2/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets2/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets2/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets2/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'assets2/mobirise/css/mbr-additional.css' %}"><link rel="stylesheet" href="{% static 'assets2/mobirise/css/mbr-additional.css' %}" type="text/css">
 
-{% for object in classes %}
-    {% if object.img1 %}
-        <img src ="{{ object.img1.url }}" width = 200px> 
-    {% endif %}
-    {% if object.img2 %}
-        <img src ="{{ object.img2.url }}" width = 200px> 
-    {% endif %}
-    {% if object.img3 %}
-        <img src ="{{ object.img3.url }}" width = 200px> 
-    {% endif %}
+  
+</head>
+<body>
+  <section class="header9 cid-rIwVW69CfW mbr-parallax-background" id="header9-x">
+
     
-    <br>
-    {{object.class_title}}
-    <br>
-    {{object.summary}}
-    <br>
-    {{object.price}}원
-    <br>
-    {{object.date|date:"Y년 m월 d일 H시 i분" }}
-    <br>
-    {{object.category}}
-    <br>
-    {{object.book_set.count}}
-    <br>
-    {{object.max_number}}
-    <br>
-    <a href="{% url 'classregister:detail' object.id %}">자세히</a>
-    <br>
-    <br>
-{% endfor %}
+
+    <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(118, 118, 118);">
+    </div>
+
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 align-center mbr-white">
+                <h4 class="mbr-section-title mbr-fonts-style display-2"><strong><br></strong><br><strong><br></strong><br>&nbsp;SClass만의</h4>
+                <h1 class="mbr-section-title mbr-bold mbr-fonts-style display-1">&nbsp;특별한 클래스</h1>
+                <p class="mbr-text pb-3 mbr-fonts-style display-7">
+                    지금 내주변에서 모집중인 클래스를 찾아보세요!</p>
+                
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+
+
+
+
+<section class="features10 cid-rIx3hf4SKX" id="features10-16">
+    <div class="container">
+
+    <form action="{% url 'classregister:search' %}" method="GET">
+        <div class="row justify-content-center">
+            <div class='col-md-3'>
+                <div class="form-group">
+                    <select name="category" class="form-control">
+                        <option value='none'>카테고리 선택</option>
+                        <option value="요리">요리</option>
+                        <option value="수공예">수공예</option>
+                        <option value="꽃">꽃</option>
+                        <option value="미술">미술</option>
+                        <option value="음악">음악</option>
+                        <option value="미용">미용</option>
+                        <option value="운동">운동</option>
+                        <option value="커피/차">커피/차</option>
+                    </select>
+                </div>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-sm btn-block m-0' type='submit' class='form-control'>검색</button>
+            </div>
+        </div>
+    </form>
+        <div class="row justify-content-start align-items-start">
+            {% for object in classes %}
+            <div class="card px-3 py-4 col-md-4">
+                <div class="card-wrapper flip-card">
+                    <div class="card-img">
+                        {% if object.img1 %}
+                            <img src ="{{ object.img1.url }}" width = 200px> 
+                        {% else %}
+                            <img src="{% static 'assets2/images/liz99-7eeesn-egsi-unsplash-696x464.jpg' %}" alt="Mobirise" title="">
+                        {% endif %}
+
+                        <div class="img-text mbr-text mbr-fonts-style align-center mbr-white display-4">{{ object.category }}</div>
+                    </div>
+                    <div class="card-box">
+                        <h3 class="mbr-title mbr-fonts-style mbr-black align-center display-2">{{ object.class_title }}</h3>
+                        <p class="mbr-card-text mbr-fonts-style align-center display-7">
+                            {{ object.summary }}<br>{{ object.store.region }}</p>
+                        <h3 class="mbr-title mbr-fonts-style mbr-black align-center display-2">₩{{ object.price }}</h3>
+                        <div class="mbr-section-btn align-center pt-3"><a href="{% url 'classregister:detail' object.id %}" class="btn btn-md btn-primary display-4">자세히 보기</a></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+  <script src="{% static 'assets2/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets2/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets2/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets2/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets2/mbr-animated-bg-text/mbr-animated-bg-text.js' %}"></script>
+  <script src="{% static 'assets2/parallax/jarallax.min.js' %}"></script>
+  <script src="{% static 'assets2/theme/js/script.js' %}"></script>
+  
+  
+</body>
+</html>
 
 {% endblock %}

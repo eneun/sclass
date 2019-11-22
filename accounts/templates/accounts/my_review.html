@@ -1,14 +1,97 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>내기 리뷰를 적은 클래스</h2>
-{% for review in reviews.all %}
-    <br>
-    <a href="{% url 'classregister:detail' review.review_class.id %}">{{review.review_class.class_title}} </a>
-    <p>{{review.rate}} </p>
-    <p>{{review.content}} </p>
-    <!--classregister 앱의 detail과 storeregister 앱의 detail 이름이 겹쳐서 수정 필요-->
-    <br>
-{% endfor %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="{% static 'assets/images/logo4.png' %}" type="image/x-icon">
+  <meta name="description" content="">
+  
+  <title>my_review</title>
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/datatables/data-tables.bootstrap4.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}"><link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+  
+  
+  
+</head>
+<body>
+  <section class="features14 popup-btn-cards cid-rIsIZ5DjMM mbr-parallax-background" id="features14-1r">
+
+    
+
+    <div class="mbr-overlay" style="opacity: 0.4; background-color: rgb(0, 0, 0);">
+    </div>
+    <a class="full-link" href=""></a>
+    <div class="container-fluid card-wrapper">
+        <div class="row justify-content-center align-items-center" style="min-height: 12vw;">
+             <div class="col-xl-10 col-lg-10 col-md-12 text-block">
+                <h2 class="mbr-section-title mbr-fonts-style mbr-light mbr-white mbr-bold display-2">REVIEW</h2>                 
+             </div>
+        </div>
+    </div>
+</section>
+
+<section class="table1 section-table cid-rItu6KLzJh" id="table1-2y">
+
+    
+
+    
+    <div class="container">
+        <div class="media-container-row align-center">
+            <div class="col-12 col-md-12">
+                <h2 class="mbr-section-title mbr-fonts-style mbr-black display-2">
+                    나의 리뷰</h2>
+                <h3 class="mbr-section-subtitle mbr-fonts-style pb-4 display-5">My Review</h3>
+                <div class="table-wrapper">
+                    <div class="container">
+                        
+                    </div>
+                    <div class="container-fluid scroll">
+                        <table class="table" cellspacing="0">
+
+                            <tbody>
 
 
+                                {% for review in reviews.all %}
+
+                                <tr> 
+                                    <a href="{% url 'classregister:detail' review.review_class.id %}">    
+                                        <td class="body-item mbr-fonts-style display-7">{{review.review_class.class_title}}</td><td class="body-item mbr-fonts-style display-7">{{review.rate}}</td></a>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="container-fluid table-info-container">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets/mbr-popup-btns/mbr-popup-btns.js' %}"></script>
+  <script src="{% static 'assets/parallax/jarallax.min.js' %}"></script>
+  <script src="{% static 'assets/datatables/jquery.data-tables.min.js' %}"></script>
+  <script src="{% static 'assets/datatables/data-tables.bootstrap4.min.js' %}"></script>
+  <script src="{% static 'assets/theme/js/script.js' %}"></script>
+  
+  
+</body>
+</html>
 {% endblock %}

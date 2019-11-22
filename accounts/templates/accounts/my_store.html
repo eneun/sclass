@@ -1,13 +1,94 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>내가 등록한 상점</h2>
+{% load staticfiles %}
 
 
-{% for store in stores.all %}
 
-<a href="{% url 'storeregister:detail' store.id %}">{{ store.store_title }}</a>
+<!DOCTYPE html>
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="{% static 'assets/images/logo4.png' %}" type="image/x-icon">
+  <meta name="description" content="">
+  
+  <title>my_store</title>
+  <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons/mobirise-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}"><link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+  
+  
+</head>
+<body>
+  <section class="features14 popup-btn-cards cid-rItky7J9su mbr-parallax-background" id="features14-2h">
 
-{% endfor %}
+    
+
+    
+    <a class="full-link" href=""></a>
+    <div class="container-fluid card-wrapper">
+        <div class="row justify-content-center align-items-center" style="min-height: 12vw;">
+             <div class="col-xl-10 col-lg-10 col-md-12 text-block">
+                <h2 class="mbr-section-title mbr-fonts-style mbr-light mbr-white mbr-bold display-2" style="font-family:'Handon3gyeopsal600g';">MY STORE<br>MANAGEMENT</h2>                 
+             </div>
+        </div>
+    </div>
+</section>
+
+<section class="accordion1 cid-rItky8LYd8" id="accordion1-2i">
+
+    
+
+    
+    <div class="container">
+        <h2 class="mbr-fonts-style mbr-section-title align-center display-2" style="font-family:'Handon3gyeopsal600g';">나의 가게</h2>
+        <h3 class="mbr-fonts-style mbr-section-subtitle align-center display-5" style="font-family:'Handon3gyeopsal300g';">My Store Management</h3>
+        
+        <div class="row justify-content-center pt-4">
+            <div class="col-md-10 col-lg-8 content-block">
+            <div class="accordion-content">
+                <div id="bootstrap-accordion_39" class="panel-group accordionStyles accordion " role="tablist" aria-multiselectable="true">
+                    {% for store in stores.all %}    
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingOne"style="padding:10px; margin:10px">
+                                <a role="button" class="collapsed panel-title text-black" data-toggle="collapse" data-core="" href="#collapse11_39" aria-expanded="false" aria-controls="collapse11">
+                                    <h4 class="mbr-fonts-style header-text display-5"><a href="{% url 'storeregister:detail' store.id %}" style="font-family:'ON-IGothic';">&nbsp;&nbsp;&nbsp;{{ store.store_title }}</a></h4>
+                                   
+
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}    
+                        
+                </div>
+            </div>
+            </div>
+        </div>
+    
+    </div>         
+</section>
+
+
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets/mbr-popup-btns/mbr-popup-btns.js' %}"></script>
+  <script src="{% static 'assets/parallax/jarallax.min.js' %}"></script>
+  <script src="{% static 'assets/mbr-switch-arrow/mbr-switch-arrow.js' %}"></script>
+  <script src="{% static 'assets/theme/js/script.js' %}"></script>
+  
+  
+</body>
+</html>
+
+
 
 
 {% endblock %}

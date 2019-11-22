@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
+{% load staticfiles %}
 
 {% if error %}
 {{error}}
@@ -8,25 +8,78 @@
 <br>
 {% endif %}
 
-<h1>sign up!</h1>
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="{% static 'assets/images/logo4.png' %}" type="image/x-icon">
+  <meta name="description" content="">
+  
+  <title>signup</title>
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}"><link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+  
+  
+  
+</head>
+<body>
+  <section class="form3 cid-rItqWwiJQ3" id="form3-2u">
 
-<form method="POST" action="{% url 'signup' %}">
     
-    {% csrf_token %}
 
-    Username:
-    <br>
-    <input name="username" type="text" value="">
-    <br>
-    Password: 
-    <br>
-    <input name="password1" type="password" value="">
-    <br>
-    Confirm Password:
-    <br>
-    <input name="password2" type="password" value="">
-    <br>
-    <br>
-    <input class="btn btn-primary" type="submit" value="Sign Up!">
-</form>
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="form-1 col-md-10 col-lg-8">
+                <h2 class="mbr-fonts-style mbr-fonts-style mbr-section-title align-center display-2"style="font-family:'Handon3gyeopsal600g';">회원가입</h2>
+                <h3 class="mbr-fonts-style mbr-fonts-style mbr-section-subtitle align-center display-5"style="font-family:'Handon3gyeopsal600g';">Sign Up</h3>
+                <div class="form-wrap pt-4">
+                <!---Formbuilder Form--->
+                <form method="POST" action="{% url 'signup' %}">
+                    {% csrf_token %}
+                            <div class="row">
+                            <div hidden="hidden" data-form-alert="" class="alert alert-success col-12"style="font-family:'Handon3gyeopsal300g';">Signup Complete!</div>
+                            <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12"></div>
+                        </div>
+                        <div class="dragArea row">
+                            <form method="POST" action="{% url 'signup' %}">
+                            {% csrf_token %}                                    
+                            <div data-for="name" class="col-lg-6  mb-3 form-group">
+                                <!--<input name="username" type="text" value="">-->
+                                <input type="text" name="username" placeholder="ID" data-form-field="Name" class="form-control input display-7" required="required" id="name-form3-2u">
+                            </div>
+                            <div data-for="lastname" class="col-lg-6  mb-3 form-group">
+                                    <!--<input name="password1" type="password" value="">-->
+                                    <input type="password" name="password1" placeholder="비밀번호" data-form-field="Last Name" class="form-control input display-7" id="lastname-form3-2u">
+                            </div>
+                            
+                            <div data-for="phone" class="col-lg-6  mb-3 form-group">
+                                    <!--<input name="password2" type="password" value="">-->
+                                    <input type="password" name="password2" placeholder="비밀번호 재입력" data-form-field="Phone" class="form-control input display-7" id="phone-form3-2u">
+                            </div>
+                            <!--<input class="btn btn-primary" type="submit" value="Sign Up!">-->
+                            <div class="col-md-12 input-group-btn  mt-2 align-left"><button type="submit" class="btn btn-form btn-bgr btn-success display-4" value="Sign Up!" style="font-family:'Handon3gyeopsal600g';">Sign Up</button></div>
+                        </div>
+                </form><!---Formbuilder Form--->
+                </div>
+            </div>
+        </div>
+   </div>
+</section>
+
+
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets/theme/js/script.js' %}"></script>
+  <script src="{% static 'assets/formoid/formoid.min.js' %}"></script>
+  
+  
+</body>
 {% endblock %}

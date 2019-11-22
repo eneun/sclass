@@ -1,10 +1,37 @@
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
-<a href="{% url 'home' %}">HOME</a>
-<br>
-<a href="{% url 'mypage' %}">마이 페이지</a>
+{% load staticfiles %}
 
+<!DOCTYPE html>
+<html  >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="{% static 'assets2/images/logo-mobile-164x174.png' %}" type="image/x-icon">
+  <meta name="description" content="">
+  
+  <title>SClass - 주변 시장의 숨겨진 이야기</title>
+
+  <link rel="stylesheet" href="{% static 'assets2/web/assets/mobirise-icons/mobirise-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'assets2/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets2/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets2/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets2/socicon/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'assets2/dropdown/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets2/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'assets2/mobirise/css/mbr-additional.css' %}"><link rel="stylesheet" href="{% static 'assets2/mobirise/css/mbr-additional.css' %}" type="text/css">
+    <style>
+        @font-face { font-family: 'Handon3gyeopsal300g'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal300g.woff') format('woff'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'Handon3gyeopsal600g'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff') format('woff'); font-weight: normal; font-style: normal; } 
+        @font-face { font-family: 'NanumBarunGothic'; src: url('/fonts/NanumBarunGothic.eot'); src: url('/fonts/NanumBarunGothic.eot') format('embedded-opentype'), url('/fonts/NanumBarunGothic.woff') format('woff');}
+        @font-face { font-family: 'BinggraeMelona'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BinggraeMelona.woff') format('woff'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'ON-IGothic'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eleven@1.0/ON-IGothic.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+    </style>
+</head>
 {% if user.is_authenticated %}
 <p>환영합니다 {{ user.username }} 님!</p>
 <a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
@@ -16,6 +43,66 @@
 <a href="{% url 'login' %}">로그인</a>
 {%endif%}
 
+
+<section class="menu cid-rIxlBUQeEd" once="menu" id="menu3-1u" data-sortbtn="btn-primary">
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+        <div class="navbar-brand">
+            <span class="navbar-logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'assets2/images/logo-mobile-164x174.png' %}" alt="Mobirise" title="" style="height: 4.3rem;">
+                </a>
+            </span>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item">
+                    <a class="nav-link link text-primary display-4" href="{% url 'home' %}">홈</a>
+                </li>
+                {% if not user.is_authenticated %}
+                    <li class="nav-item">
+                    <a class="nav-link link text-primary display-4" href="{% url 'login' %}">로그인<br></a></li>
+                    <li class="nav-item">
+                    <a class="nav-link link text-primary display-4" href="{% url 'signup' %}">회원가입<br></a></li>
+                {% else %}
+                    <li class="nav-item">
+                    <a class="nav-link link text-primary display-4" href="javascript:{document.getElementById('logout').submit()}" aria-expanded="false">로그아웃</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link link text-primary display-4" href="{% url 'mypage' %}" aria-expanded="false">마이페이지</a>
+                    </li>
+                    <form id="logout" method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                    </form>
+                {% endif %}
+                    <li class="nav-item">
+                    <a class="nav-link link text-primary display-4" href="{% url 'news_list' %}" aria-expanded="false">스토리</a>
+                    </li>
+                </ul>
+      </div>
+    </nav>
+</section>
+
+
 {% block content %}
 
 {% endblock %}
+
+
+    <script src="{% static 'assets2/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets2/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets2/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets2/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets2/touchswipe/jquery.touch-swipe.min.js' %}"></script>
+  <script src="{% static 'assets2/mbr-animated-bg-text/mbr-animated-bg-text.js' %}"></script>
+  <script src="{% static 'assets2/parallax/jarallax.min.js' %}"></script>
+  <script src="{% static 'assets2/dropdown/js/nav-dropdown.js' %}"></script>
+  <script src="{% static 'assets2/dropdown/js/navbar-dropdown.js' %}"></script>
+  <script src="{% static 'assets2/theme/js/script.js' %}"></script>
+</html>

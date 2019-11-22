@@ -96,16 +96,18 @@ def my_enroll(request):
     return render(request, 'accounts/my_enroll.html', {'books': books}) 
 
 @login_required
-@transaction.atomic
 def profile_edit(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
         if user_form.is_valid():
+            print("valid")
             user_form.save()
-            messages.success(request, ('Your profile was successfully updated!'))
             return redirect('profile_show')
+            # messages.success(request, ('Your profile was successfully updated!'))
         else:
-            messages.error(request, ('Please correct the error below.'))
+            print("invalid")
+            return redirect('profile_show')
+            # messages.error(request, ('Please correct the error below.'))
     else:
         user_form = UserForm(instance=request.user)
         return render(request, 'accounts/profile_edit.html', {'user_form':user_form})

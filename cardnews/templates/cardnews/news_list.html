@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="{% static 'assets2/images/logo4.png' %}" type="image/x-icon">
+  <meta name="description" content="">
+  
+  <title>class_list</title>
+  <link rel="stylesheet" href="{% static 'assets2/web/assets/mobirise-icons/mobirise-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'assets2/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets2/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets2/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets2/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'assets2/mobirise/css/mbr-additional.css' %}"><link rel="stylesheet" href="{% static 'assets2/mobirise/css/mbr-additional.css' %}" type="text/css">
+
+  
+</head>
+<body>
+  <section class="header9 cid-rIwVW69CfW mbr-parallax-background" id="header9-x">
+
+    
+
+    <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(118, 118, 118);">
+    </div>
+
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 align-center mbr-white">
+                <h4 class="mbr-section-title mbr-fonts-style display-2"><strong><br></strong><br><strong><br></strong><br>&nbsp;SClass만의</h4>
+                <h1 class="mbr-section-title mbr-bold mbr-fonts-style display-1">&nbsp;스토리를 들어보세요.</h1>
+                <p class="mbr-text pb-3 mbr-fonts-style display-7">
+                    SClass가 들려드리는 작은 이야기들</p>
+                  
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+
+
+
+
+<section class="features10 cid-rIx3hf4SKX" id="features10-16">
+    <div class="container">
+        <div class="row justify-content-start align-items-start">
+            {% for news in news.all %}
+            <div class="card px-3 py-4 col-md-4">
+                <div class="card-wrapper flip-card">
+                    <div class="card-img">
+                            <img src ="{{ news.photo1.url }}" width = 200px> 
+                    </div>
+                    <div class="card-box">
+                        <h3 class="mbr-title mbr-fonts-style mbr-black align-center display-2">{{ news.news_title }}</h3>
+                        <div class="mbr-section-btn align-center pt-3"><a href="{% url 'news_content' news.id %}" class="btn btn-md btn-primary display-4">자세히 보기</a></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+  <script src="{% static 'assets2/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets2/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets2/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets2/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets2/mbr-animated-bg-text/mbr-animated-bg-text.js' %}"></script>
+  <script src="{% static 'assets2/parallax/jarallax.min.js' %}"></script>
+  <script src="{% static 'assets2/theme/js/script.js' %}"></script>
+  
+  
+</body>
+</html>
+
+{% endblock %}

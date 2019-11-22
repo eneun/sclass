@@ -1,36 +1,186 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load staticfiles %}
 {% if user.is_authenticated %}
+<!DOCTYPE html>
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="{% static 'assets/images/logo4.png'%}" type="image/x-icon">
+  <meta name="description" content="">
+  
+  <title>mypage</title>
+  <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons/mobirise-icons.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css'%}">
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css'%}"><link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css'%}" type="text/css">
+  
+  
+</head>
+<body>
 
-    <h2>마이페이지</h2>
-    <br><br>
-    <a href="{% url 'profile_show' %}">내 프로필 보기</a>
-    <br>
-    <a href="{% url 'my_enroll' %}">내가 수강신청한 클래스</a>
-    <br>
-    <a href="{% url 'my_scrap' %}">내가 스크랩한 클래스</a>
-    <br>
-    <!--<a href="{% url 'my_recommend'  %}">내가 추천한 가게</a>-->
-    <a href="{% url 'my_review' %}">내가 리뷰한 클래스</a>
-    <br>
-    <!-- <a href="{% url 'my_enroll' %}">내가 신청한 클래스</a>-->
+        
+  <section class="features14 popup-btn-cards cid-rIsEFpFcr4 mbr-parallax-background" id="features14-19">
 
-    {% if user.seller is True %}
-        <br>
-        <a href="{% url 'my_store' %}">내가 등록한 상점</a>
-        <br>
-        <a href="{% url 'my_class' %}">내가 개설한 클래스</a>
-        <br>
-        <!--<a href="{% url 'my_consult' %}">나의 컨설팅 목록</a>-->
-        <a href="{% url 'classregister:register' %}">클래스 등록하기</a>
-        <br>
-        <a href="{% url 'storeregister:register' %}">가게 등록하기</a>
-        <br>
-    {% endif %}
-{%else%}
-    <p>로그인하세요</p>
+    
+
+    
+    <a class="full-link" href=""></a>
+    <div class="container-fluid card-wrapper">
+        <div class="row justify-content-center align-items-center" style="min-height: 12vw;">
+             <div class="col-xl-10 col-lg-10 col-md-12 text-block">
+                <h2 class="mbr-section-title mbr-fonts-style mbr-light mbr-white mbr-bold display-2 " style="font-family: 'Handon3gyeopsal300g'">MY PAGE</h2>                 
+             </div>
+        </div>
+    </div>
+</section>
+
+<section class="accordion1 cid-rIsETYg5HB" id="accordion1-1g">
+
+    
+
+    
+    <div class="container">
+        <h2 class="mbr-fonts-style mbr-section-title align-center display-2" style="font-family:'Handon3gyeopsal600g'">나의 회원정보</h2>
+        <h3 class="mbr-fonts-style mbr-section-subtitle align-center display-5"  style="font-family: 'Handon3gyeopsal300g'">my page</h3>
+        <div class="row justify-content-center pt-4">
+            <div class="col-md-10 col-lg-8 content-block">
+            <div class="accordion-content">
+                <div id="bootstrap-accordion_16" class="panel-group accordionStyles accordion " role="tablist" aria-multiselectable="true">
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingOne" style="padding:10px; padding-top:12px;">
+                                <a href="{% url 'profile_show' %}">
+                                    <h4 class="mbr-fonts-style header-text display-5" style="font-family: 'ON-IGothic';">&nbsp;&nbsp;&nbsp;내 프로필</h4>
+
+                                </a>
+                            </div>
+
+                        </div>
+                
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingTwo" style="padding:10px;padding-top:12px;">
+                                <a href="{% url 'my_enroll' %}">
+                                    <h4 class="mbr-fonts-style header-text display-5"style="font-family: 'ON-IGothic';">&nbsp;&nbsp;&nbsp;수강신청한 클래스</h4>
+                                </a>
+                                
+                            </div>
+
+                        </div>
+                
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingThree" style="padding:10px;padding-top:12px;">
+                                <a href="{% url 'my_scrap' %}">
+                                    <h4 class="mbr-fonts-style header-text display-5" style="font-family: 'ON-IGothic';">&nbsp;&nbsp;&nbsp;스크랩한 클래스</h4>
+
+                                </a>
+                            </div>
+
+                        </div>
+                
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingFour" style="padding:10px; padding-top:12px;">
+                                <a href="{% url 'my_review' %}">
+                                    <h4 class="mbr-fonts-style header-text display-5" style="font-family: 'ON-IGothic';">&nbsp;&nbsp;&nbsp;나의 리뷰</h4>
+
+                                </a>
+                            </div>
+
+                        </div>
+
+                        
+                </div>
+            </div>
+            </div>
+    </div>
+    </div>         
+</section>
+
+
+
+{% if user.seller is True %}
+<section class="accordion1 cid-rIsHAsPqv7" id="accordion1-1h">
+
+    
+
+    
+    <div class="container">
+        <h2 class="mbr-fonts-style mbr-section-title align-center display-2" style="font-family:'Handon3gyeopsal600g'">내 클래스 관리하기</h2>
+        <h3 class="mbr-fonts-style mbr-section-subtitle align-center display-5"  style="font-family: 'Handon3gyeopsal300g'">My Class</h3>
+        <div class="row justify-content-center pt-4">
+            <div class="col-md-10 col-lg-8 content-block">
+            <div class="accordion-content">
+                <div id="bootstrap-accordion_17" class="panel-group accordionStyles accordion " role="tablist" aria-multiselectable="true">
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingOne" style="padding:10px; padding-top:12px;">
+                                <a href="{% url 'my_store' %}">
+                                    <h4 class="mbr-fonts-style header-text display-5" style="font-family: 'ON-IGothic';">&nbsp;&nbsp;&nbsp;내 가게 보러가기</h4>
+                                </a>
+                            </div>
+
+                        </div>
+                
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingTwo" style="padding:10px; padding-top:12px;">
+                                <a href="{% url 'my_class' %}">
+                                    <h4 class="mbr-fonts-style header-text display-5" style="font-family: 'ON-IGothic';">&nbsp;&nbsp;&nbsp;내가 개설한 클래스</h4>
+                                </a>
+                                
+                            </div>
+
+                        </div>
+                
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingThree"style="padding:10px; padding-top:12px;">
+                                <a href="{% url 'classregister:register' %}">
+                                    <h4 class="mbr-fonts-style header-text display-5" style="font-family: 'ON-IGothic';">&nbsp;&nbsp;&nbsp;클래스 등록하기</h4>
+
+                                </a>
+                            </div>
+
+                        </div>
+                
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingFour"style="padding:10px; padding-top:12px;">
+                                    <a href="{% url 'storeregister:register' %}">
+                                    <h4 class="mbr-fonts-style header-text display-5" style="font-family: 'ON-IGothic';">&nbsp;&nbsp;&nbsp;가게 등록하기</h4>
+
+                                </a>
+                            </div>
+
+                        </div>
+                
+                        
+                
+                        
+                </div>
+            </div>
+            </div>
+    </div>
+    </div>         
+</section>
 {% endif %}
 
 
 
-{% endblock %}
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'assets/popper/popper.min.js'%}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'assets/smoothscroll/smooth-scroll.js'%}"></script>
+  <script src="{% static 'assets/mbr-popup-btns/mbr-popup-btns.js'%}"></script>
+  <script src="{% static 'assets/parallax/jarallax.min.js'%}"></script>
+  <script src="{% static 'assets/mbr-switch-arrow/mbr-switch-arrow.js'%}"></script>
+  <script src="{% static 'assets/theme/js/script.js'%}"></script>
+  
+{% endif %}
+
+
+
+{% endblock %}  
+</body>
+</html>

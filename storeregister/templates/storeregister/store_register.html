@@ -1,6 +1,7 @@
-<p>가게등록페이지</p>
 {% extends 'base.html' %}
 {% block content %}
+{% load staticfiles %}
+<!--
     <form method='POST' enctype="multipart/form-data" novalidate>
 
         {% csrf_token %}
@@ -11,11 +12,11 @@
         {{ form.photo.label }} {{ form.photo }}<br>
         
         
-        <!--다음 api-->
+        <다음 api>
         <input type="text"  id="sample6_postcode" placeholder="우편번호">
         <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-        <input type="text" name="address" id="sample6_address" placeholder="주소"><br>  <!--address-->
-        <input type="text" name="detailaddr" id="sample6_detailAddress" placeholder="상세주소"> <!--detailaddr-->
+        <input type="text" name="address" id="sample6_address" placeholder="주소"><br>  
+        <input type="text" name="detailaddr" id="sample6_detailAddress" placeholder="상세주소"> 
         <input type="text" id="sample6_extraAddress" placeholder="참고항목">
 
         <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -75,4 +76,156 @@
     </form>
     
     <br>
+-->
+
+
+
+
+    <!DOCTYPE html>
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="{% static 'assets/images/logo2.png' %}" type="image/x-icon">
+  <meta name="description" content="Site Creator Description">
+  
+  <title>store_register</title>
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/tether/tether.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}"><link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+  
+  
+  
+</head>
+<body>
+  <section class="mbr-section form1 cid-rIyax3W2WQ" id="form1-b">
+
+    
+
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="title col-12 col-lg-8">
+                <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">가게 등록</h2>
+                <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">store register</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="media-container-column col-lg-8" >
+                <!---Formbuilder Form--->
+                <form method='POST' enctype="multipart/form-data" novalidate>
+                    {% csrf_token %}    
+                    <div class="row">
+                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
+                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
+                        </div>
+                    </div>
+                    <div class="dragArea row">
+                        <div class="col-md-12  form-group" data-for="name">
+                                <!--<div data-for="name" class="col-lg-6  mb-3 form-group">
+                                        {{ user_form.first_name}}
+                                    </div>-->
+                                {{ form.store_title.label }}{{ form.store_title }}
+                        </div>
+                        <div class="col-md-12  form-group" data-for="email">
+                                {{ form.region.label }} {{ form.region }}
+                        </div>
+                        <div data-for="phone" class="col-md-12  form-group">
+                                {{ form.homepage.label }} {{ form.homepage }}
+                        </div>
+                        <div data-for="message" class="col-md-12 form-group">
+                                {{ form.describe.label }} {{ form.describe }}
+                        </div>
+                        <div class="col-md-12  form-group" data-for="name">
+                                <input type="text" class="form-control display-7 width auto" id="sample6_postcode" placeholder="우편번호">
+                                <input type="button"  class="form-control display-7"onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+                                <input type="text" class="form-control display-7" name="address" id="sample6_address" placeholder="주소"><br>  
+                                <input type="text" class="form-control display-7" name="detailaddr" id="sample6_detailAddress" placeholder="상세주소"> 
+                                <input type="text" class="form-control display-7" id="sample6_extraAddress" placeholder="참고항목">
+                        
+                                <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+                                <script>
+                                    function sample6_execDaumPostcode() {
+                                        new daum.Postcode({
+                                            oncomplete: function(data) {
+                                                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+                        
+                                                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                                                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                                                var addr = ''; // 주소 변수
+                                                var extraAddr = ''; // 참고항목 변수
+                        
+                                                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                                                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                                                    addr = data.roadAddress;
+                                                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                                                    addr = data.jibunAddress;
+                                                }
+                        
+                                                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                                                if(data.userSelectedType === 'R'){
+                                                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                                                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                                                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                                                        extraAddr += data.bname;
+                                                    }
+                                                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                                                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                                                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                                                    }
+                                                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                                                    if(extraAddr !== ''){
+                                                        extraAddr = ' (' + extraAddr + ')';
+                                                    }
+                                                    // 조합된 참고항목을 해당 필드에 넣는다.
+                                                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                                                
+                                                } else {
+                                                    document.getElementById("sample6_extraAddress").value = '';
+                                                }
+                        
+                                                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                                                document.getElementById('sample6_postcode').value = data.zonecode;
+                                                document.getElementById("sample6_address").value = addr;
+                                                // 커서를 상세주소 필드로 이동한다.
+                                                document.getElementById("sample6_detailAddress").focus();
+                                            }
+                                        }).open();
+                                    }
+                                </script>
+                            </div>
+                            
+                            <div class="col-md-4  form-group" data-for="name">
+                                    {{ form.photo.label }} {{ form.photo }}
+                            </div>
+                        <div class="col-md-12 input-group-btn align-center"><button type="submit" class="btn btn-primary btn-form display-4">등록하기</button></div>
+                    </div>
+                </form><!---Formbuilder Form--->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="engine"><a href="https://mobirise.info/k">develop own website</a></section>
+
+
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/tether/tether.min.js' %}"></script>
+  <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets/theme/js/script.js' %}"></script>
+  <script src="{% static 'assets/formoid/formoid.min.js' %}"></script>
+  
+  
+</body>
+</html>
 {% endblock %}

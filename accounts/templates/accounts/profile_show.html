@@ -1,17 +1,134 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>회원정보</h2>
+{% load staticfiles %}
+<!DOCTYPE html>
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="{% static 'assets/images/logo4.png' %}" type="image/x-icon">
+  <meta name="description" content="">
+  
+  <title>profile_show</title>
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/datatables/data-tables.bootstrap4.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}"><link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+  
+  
+  
+</head>
+<body>
+  <section class="features14 popup-btn-cards cid-rIsKCiGiSI mbr-parallax-background" id="features14-1z">
+
+    
+
+    <div class="mbr-overlay" style="opacity: 0.4; background-color: rgb(0, 0, 0);">
+    </div>
+    <a class="full-link" href=""></a>
+    <div class="container-fluid card-wrapper">
+        <div class="row justify-content-center align-items-center" style="min-height: 12vw;">
+             <div class="col-xl-10 col-lg-10 col-md-12 text-block">
+                <h2 class="mbr-section-title mbr-fonts-style mbr-light mbr-white mbr-bold display-2">PROFILE</h2>                 
+             </div>
+        </div>
+    </div>
+</section>
 {% if user.is_authenticated %}
+<section class="table1 section-table cid-rIsLp4pmia" id="table1-24">
 
-<p>아이디 : {{ user.username }}</p>
-<p>이름 : {{ user.first_name }}</p>
-<p>성 : {{ user.last_name }}</p>
-<p>이메일 : {{ user.email }}</p>
-<p>판매자인가요? : {{ user.seller }}</p>
-<p>전화번호 : {{ user.phone }}</p>
+    
 
-<a href="{% url 'profile_edit' %}">수정하기</a>
+    
+    <div class="container">
+        <div class="media-container-row align-center">
+            <div class="col-12 col-md-12">
+                <h2 class="mbr-section-title mbr-fonts-style mbr-black display-2">
+                    내 회원정보</h2>
+                <h3 class="mbr-section-subtitle mbr-fonts-style pb-4 display-5">
+                    My Profile</h3>
+                <div class="table-wrapper">
+                    <div class="container">
+                        
+                    </div>
+                    <div class="container-fluid scroll">
+                        <table class="table table-striped" cellspacing="0">
 
-{% endif %}
+                            <tbody>
+                                                                
+                            <tr> 
+                                                                        
+                                <td class="body-item mbr-fonts-style display-7">ID</td><td class="body-item mbr-fonts-style display-7">{{ user.username }}</td></tr><tr> 
+                                    
+                                    
+                                    
+                                    
+                                    
+                                <td class="body-item mbr-fonts-style display-7">성</td><td class="body-item mbr-fonts-style display-7">{{ user.first_name }}</td></tr><tr> 
+                                    
+                                    
+                                    
+                                    
+                                    
+                                <td class="body-item mbr-fonts-style display-7">이름</td><td class="body-item mbr-fonts-style display-7">{{ user.last_name }}</td></tr><tr> 
+                                    
+                                    
+                                    
+                                    
+                                    
+                                <td class="body-item mbr-fonts-style display-7">이메일</td><td class="body-item mbr-fonts-style display-7">{{ user.email }}</td></tr><tr> 
+                                    
+                                    
+                                    
+                                    
+                                    
+                                <td class="body-item mbr-fonts-style display-7">판매자&nbsp;</td><td class="body-item mbr-fonts-style display-7">{{ user.seller }}</td></tr><tr> 
+                                    
+                                    
+                                    
+                                    
+                                    
+                                <td class="body-item mbr-fonts-style display-7">전화번호</td><td class="body-item mbr-fonts-style display-7">{{ user.phone }}</td></tr></tbody>
+                        </table>
+                    </div>
+                    <div class="container-fluid table-info-container">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<section class="mbr-section content11 cid-rIw3BnhE9I" id="content11-3d">
+
+    
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="mbr-section-btn align-center"><a class="btn btn-success display-4" href="{% url 'profile_edit' %}">회원정보 수정하기</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets/mbr-popup-btns/mbr-popup-btns.js' %}"></script>
+  <script src="{% static 'assets/parallax/jarallax.min.js' %}"></script>
+  <script src="{% static 'assets/datatables/jquery.data-tables.min.js' %}"></script>
+  <script src="{% static 'assets/datatables/data-tables.bootstrap4.min.js' %}"></script>
+  <script src="{% static 'assets/theme/js/script.js' %}"></script>
+  {% endif %}
+</body>
+</html>
 {% endblock %}
