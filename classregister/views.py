@@ -24,10 +24,15 @@ def detail(request, class_id):
     class_object = get_object_or_404(Class, pk=class_id)
     books = Book.objects.filter(book_class=class_id)
     books = [ i.user for i in books ]
+
+    user = class_object.owner_name
+    store = Store.objects.filter(user=user)
+    address = store.first().address
+
     reviews = Review.objects.filter(review_class=class_id)
     booked = Book.objects.filter(book_class=class_id, user=request.user)
     scraped = Scrap.objects.filter(user=request.user, my_class=class_object)
-    data = { 'object' : class_object, 'reviews' : reviews, 'books':books, 'scraped':scraped, 'booked': booked}
+    data = { 'object' : class_object, 'reviews' : reviews, 'books':books, 'scraped':scraped, 'booked': booked, 'address': address}
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -43,7 +48,7 @@ def detail(request, class_id):
 
 def register(request):
     if request.method == 'POST':
-        form = ClassForm(request.POST)
+        form = ClassForm(request.POST, request.FILES)
         if form.is_valid():
             one_class = form.save(commit=False)
             one_class.owner_name = request.user
@@ -57,7 +62,7 @@ def register(request):
 def classupdate(request, class_id):
     one_class = get_object_or_404(Class, pk = class_id)
     if request.method == 'POST':
-        form = ClassForm(request.POST, instance = one_class)
+        form = ClassForm(request.POST, request.FILES, instance = one_class)
         if form.is_valid():
             one_class = form.save(commit=False)
             one_class.save()

@@ -36,9 +36,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10 col-lg-8 align-center mbr-white">
-                <h4 class="mbr-section-title mbr-fonts-style display-2"><strong><br></strong><br><strong><br></strong><br>&nbsp;SClass만의</h4>
-                <h1 class="mbr-section-title mbr-bold mbr-fonts-style display-1">&nbsp;지역 상점들</h1>
-                <p class="mbr-text pb-3 mbr-fonts-style display-7">
+                <h4 class="mbr-section-title mbr-fonts-style display-2" style="font-family:'Handon3gyeopsal600g';"><strong><br></strong><br><strong><br></strong><br>&nbsp;SClass만의</h4>
+                <h1 class="mbr-section-title mbr-bold mbr-fonts-style display-1" style="font-family:'Handon3gyeopsal600g';">&nbsp;지역 상점들</h1>
+                <p class="mbr-text pb-3 mbr-fonts-style display-7" style="font-family:'Handon3gyeopsal300g';">
                     내주변에서 운영중인 지역 시장 상점들을 살펴보세요!</p>
                 
             </div>
@@ -79,24 +79,21 @@
                 <div class="card-wrapper flip-card">
                     <div class="card-img">
                         {% if store.photo %}
-                            <img src ="{{ store.photo.url }}" width = 200px> 
+                            <img src ="{{ store.photo.url }}" style="height: 200px;"> 
                         {% else %}
                             <img src="{% static 'assets2/images/liz99-7eeesn-egsi-unsplash-696x464.jpg' %}" alt="Mobirise" title="">
                         {% endif %}
 
-                        <div class="img-text mbr-text mbr-fonts-style align-center mbr-white display-4">{{ object.category }}</div>
                     </div>
                     <div class="card-box">
-                        <h3 class="mbr-title mbr-fonts-style mbr-black align-center display-2">{{ store.store_title }}</h3>
-                        <p class="mbr-card-text mbr-fonts-style align-center display-7">
-                            {{ store.region }}</p>
+                        <h3 class="mbr-title mbr-fonts-style mbr-black align-center display-2" style="font-family:'Handon3gyeopsal600g';">{{ store.store_title }}</h3>
 
                         {% if store.region == 'GN' %}
-                            <p class="mbr-card-text mbr-fonts-style align-center display-7">강남</p>
+                            <p class="mbr-card-text mbr-fonts-style align-center display-7" style="font-family:'Handon3gyeopsal300g';">강남</p>
                         {% elif store.region == 'SC' %}
-                            <p class="mbr-card-text mbr-fonts-style align-center display-7">서초</p>
+                            <p class="mbr-card-text mbr-fonts-style align-center display-7" style="font-family:'Handon3gyeopsal300g';">서초</p>
                         {% elif store.region == 'YS' %}
-                            <p class="mbr-card-text mbr-fonts-style align-center display-7">용산</p>
+                            <p class="mbr-card-text mbr-fonts-style align-center display-7" style="font-family:'Handon3gyeopsal300g';">용산</p>
                         {% endif %}
                         
                         <h4 class="mbr-title mbr-fonts-style mbr-black align-center display-2"></h4>

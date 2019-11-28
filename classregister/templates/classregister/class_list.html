@@ -35,9 +35,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10 col-lg-8 align-center mbr-white">
-                <h4 class="mbr-section-title mbr-fonts-style display-2"><strong><br></strong><br><strong><br></strong><br>&nbsp;SClass만의</h4>
-                <h1 class="mbr-section-title mbr-bold mbr-fonts-style display-1">&nbsp;특별한 클래스</h1>
-                <p class="mbr-text pb-3 mbr-fonts-style display-7">
+                <h4 class="mbr-section-title mbr-fonts-style display-2" style="font-family:'Handon3gyeopsal300g';"><strong><br></strong><br><strong><br></strong><br>&nbsp;SClass만의</h4>
+                <h1 class="mbr-section-title mbr-bold mbr-fonts-style display-1" style="font-family:'Handon3gyeopsal600g';">&nbsp;특별한 클래스</h1>
+                <p class="mbr-text pb-3 mbr-fonts-style display-7" style="font-family:'Handon3gyeopsal300g';">
                     지금 내주변에서 모집중인 클래스를 찾아보세요!</p>
                 
             </div>
@@ -81,7 +81,7 @@
                 <div class="card-wrapper flip-card">
                     <div class="card-img">
                         {% if object.img1 %}
-                            <img src ="{{ object.img1.url }}" width = 200px> 
+                            <img src ="{{ object.img1.url }}" style="height: 230px;"> 
                         {% else %}
                             <img src="{% static 'assets2/images/liz99-7eeesn-egsi-unsplash-696x464.jpg' %}" alt="Mobirise" title="">
                         {% endif %}
@@ -89,10 +89,10 @@
                         <div class="img-text mbr-text mbr-fonts-style align-center mbr-white display-4">{{ object.category }}</div>
                     </div>
                     <div class="card-box">
-                        <h3 class="mbr-title mbr-fonts-style mbr-black align-center display-2">{{ object.class_title }}</h3>
-                        <p class="mbr-card-text mbr-fonts-style align-center display-7">
+                        <h3 class="mbr-title mbr-fonts-style mbr-black align-center display-2" style="font-family:'Handon3gyeopsal600g'; font-size: 1.5rem;">{{ object.class_title }}</h3>
+                        <p class="mbr-card-text mbr-fonts-style align-center display-7" style="font-family:'ON-IGothic'; font-size: 1.1rem;">
                             {{ object.summary }}<br>{{ object.store.region }}</p>
-                        <h3 class="mbr-title mbr-fonts-style mbr-black align-center display-2">₩{{ object.price }}</h3>
+                        <h3 class="mbr-title mbr-fonts-style mbr-black align-center display-2 mt-3" style="font-family:'ON-IGothic'; font-size: 1.5rem;">₩{{ object.price }}</h3>
                         <div class="mbr-section-btn align-center pt-3"><a href="{% url 'classregister:detail' object.id %}" class="btn btn-md btn-primary display-4">자세히 보기</a></div>
                     </div>
                 </div>

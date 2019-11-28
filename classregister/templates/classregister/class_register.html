@@ -57,6 +57,7 @@
                 <div class="form-wrap pt-4">
                 <div Form-->
                     <form method="POST" class="mbr-form form-with-styler" enctype="multipart/form-data">
+                    {% csrf_token %}
                         <div class="dragArea row">
                             <div class="col-md-12  form-group" data-for="name">
                                 {{form.class_title.label}} {{form.class_title}}

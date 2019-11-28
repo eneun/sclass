@@ -83,6 +83,9 @@
                         {{object.class_title}}<br></h2>
                     <div class="mbr-section-text">
                         <p class="mbr-text pt-3 mbr-light mbr-fonts-style align-left display-7">강의자: {{object.owner_name}}님<br>가격: {{object.price}}원<br>시간: {{object.date|date:"Y년 m월 d일 H시 i분" }}<br>현재 신청 인원: {{object.book_set.count}}<br>최대 수용 인원: {{object.max_number}}</p>
+                        {% if object.owner_name == request.user %}
+                        <div class="mbr-section-btn"><a href="{% url 'classregister:classupdate' object.id %}"class="btn btn-lg btn-primary display-4" type="submit">수정하기</a>
+                        {% endif %}
                     </div>
                     <div class="mbr-section-btn pt-3 align-left">
 
@@ -120,11 +123,57 @@
 
     <div class="container">
         <div class="media-container-row">
-            <div class="col-md-10 col-lg-8">
-                <p class="mbr-text m-0 mbr-fonts-style mbr-black display-7">{{object.describe}}</p>
+            <div class="col-md-10 col-lg-7">
+                <p class="mbr-text m-0 mbr-fonts-style mbr-black display-7">{{object.describe|linebreaks}}</p>
             </div>
             <section class="map1 cid-rIxafuMED3" id="map1-1g" data-sortbtn="btn-primary">
-              <div class="google-map"><iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAEIpgj38KyLFELm2bK9Y7krBkz1K-cMq8&amp;q=place_id:ChIJn6wOs6lZwokRLKy1iqRcoKw" allowfullscreen=""></iframe></div>
+              
+                
+                <div id="map" style="width:350px;height:350px;"></div>
+
+            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=88fef5eac83ce4f2e8d43c348fcb0e0b&libraries=services"></script>
+            <script>
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                mapOption = {
+                    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                    level: 3 // 지도의 확대 레벨
+                };  
+
+            // 지도를 생성합니다    
+            var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+            // 주소-좌표 변환 객체를 생성합니다
+            var geocoder = new kakao.maps.services.Geocoder();
+
+            // 주소로 좌표를 검색합니다
+            geocoder.addressSearch('{{ address }}', function(result, status) {
+
+                // 정상적으로 검색이 완료됐으면 
+                if (status === kakao.maps.services.Status.OK) {
+
+                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                    // 결과값으로 받은 위치를 마커로 표시합니다
+                    var marker = new kakao.maps.Marker({
+                        map: map,
+                        position: coords
+                    });
+
+                    // 인포윈도우로 장소에 대한 설명을 표시합니다
+                    var infowindow = new kakao.maps.InfoWindow({
+                        content: '<div style="width:150px;text-align:center;padding:6px 0;">{{ object.class_title }}</div>'
+                    });
+                    infowindow.open(map, marker);
+
+                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                    map.setCenter(coords);
+                } 
+            });    
+            </script>
+                
+                
+                
+                
           </section>
 
         </div>

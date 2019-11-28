@@ -31,7 +31,7 @@
               <div class="carousel-inner">
                   
                 {% if store.photo %}
-                <img src ="{{ store.photo.url }}" width=200> <br>
+                {% comment %} <img src ="{{ store.photo.url }}" width=200> <br> {% endcomment %}
                 	<div class="carousel-item active">
                   <img src ="{{ store.photo.url }}" class="d-block w-100" >
                 </div>
@@ -57,11 +57,19 @@
                     <div class="mbr-section-text">
                         <p class="mbr-text pt-3 mbr-light mbr-fonts-style align-left display-7">
                             상점주인
-                        </p>: {{ store.user }}<br>지역: {{ store.region }}<br>홈페이지: {{ store.homepage }}<br></p>
+                        </p>: {{ store.user }}<br>
+                        {% if store.region == 'GN' %}
+                            강남
+                        {% elif store.region == 'SC' %}
+                            서초
+                        {% elif store.region == 'YS' %}
+                            용산
+                        {% endif %}<br/>
+                        홈페이지: {{ store.homepage }}<br></p>
                     </div>
                     <div class="mbr-section-btn pt-3 align-left">
 
-                      {% if user == store.user %}
+                      {% if request.user == store.user %}
                           <a href="{% url 'storeregister:storeupdate' store.id %}">수정</a>
                           <a href="{% url 'storeregister:delete' store.id %}" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a>
 

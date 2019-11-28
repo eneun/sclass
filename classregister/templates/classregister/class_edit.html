@@ -1,10 +1,113 @@
-<p>클래스정보수정페이지</p>
 {% extends 'base.html' %}
 {% block content %}
-<form method='POST'>
-    {% csrf_token %}
-    {{form.as_p}}
-    <br>
-    <input type="submit" value="수정">
-</form>
-{% endblock %}
+<!DOCTYPE html>
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.6, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo4.png" type="image/x-icon">
+  <meta name="description" content="">
+
+  <title>class_register_edit</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+
+
+
+</head>
+<body>
+  <section class="header9 cid-rIxcqchxtY mbr-parallax-background" id="header9-1n">
+
+
+
+    <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(170, 171, 166);">
+    </div>
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 align-center mbr-white">
+                <h4 class="mbr-section-title mbr-fonts-style display-5"><br><br><br><br></h4>
+                <h1 class="mbr-section-title mbr-bold mbr-fonts-style display-1">클래스 정보 수정<br></h1>
+
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="form3 cid-rIxbETQZ36" id="form3-1l">
+
+
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="form-1 col-md-10 col-lg-8">
+                <h2 class="mbr-fonts-style mbr-fonts-style mbr-section-title align-center display-2"></h2>
+                <h3 class="mbr-fonts-style mbr-fonts-style mbr-section-subtitle align-center display-5"></h3>
+                <div class="form-wrap pt-4">
+                <div Form-->
+                    <form method="POST" class="mbr-form form-with-styler" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="dragArea row">
+                            <div class="col-md-12  form-group" data-for="name">
+                                {{form.class_title.label}} {{form.class_title}}
+                            </div>
+                            <div class="col-md-12  form-group" data-for="name">
+                                {{form.summary.label}} {{form.summary}}
+                            </div>
+                            <div class="col-md-12  form-group" data-for="name">
+                                {{form.describe.label}} {{form.describe}}
+                            </div>
+                            <div class="col-md-12  form-group" data-for="name">
+                                {{form.price.label}} {{form.price}}
+                            </div>
+                            <div class="col-md-12  form-group" data-for="name">
+                                {{form.date.label}} {{form.date}}
+                            </div>
+                            <div class="col-md-12  form-group" data-for="name">                                {{form.category.label}} {{form.category}}
+                                {{form.max_number.label}} {{form.max_number}}
+                            </div>
+                            <div class="col-md-12  form-group" data-for="name">
+                                {{form.img1.label}} {{form.img1}}
+                            </div>
+                            <div class="col-md-12  form-group" data-for="name">
+                                {{form.img2.label}} {{form.img2}}
+                            </div>
+                            <div class="col-md-12  form-group" data-for="name">                                {{form.img3.label}} {{form.img3}}
+                                {{form.img4.label}} {{form.img4}}
+                            </div>
+                            <div class="col-md-12  form-group" data-for="name">
+                                {{form.img5.label}} {{form.img5}}
+                            </div>
+                        <div class="col-md-12 input-group-btn  mt-2 align-left"><button type="submit" class="btn btn-form btn-bgr btn-primary display-4">수정하기</button></div>
+                        </div>
+                    </form><div Form-->
+                </div>
+            </div>
+        </div>
+   </div>
+</section>
+
+
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/popper/popper.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/mbr-animated-bg-text/mbr-animated-bg-text.js"></script>
+  <script src="assets/parallax/jarallax.min.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  <script src="assets/formoid/formoid.min.js"></script>
+
+{% endblock %} 
+</body>
+</div>
