@@ -1,0 +1,1 @@
+web: gunicorn sclass.wsgi --log-file -
